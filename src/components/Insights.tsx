@@ -26,7 +26,7 @@ const Insights = () => {
                   src={insightCards[0].image}
                   alt={insightCards[0].title}
                   fill
-                  className="object-cover grayscale transition-transform duration-[1.5s] group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
@@ -50,7 +50,7 @@ const Insights = () => {
                     src={card.image}
                     alt={card.title}
                     fill
-                    className="object-cover grayscale transition-transform duration-[1.5s] group-hover:scale-105 group-hover:grayscale-0"
+                    className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
@@ -74,7 +74,7 @@ const Insights = () => {
                   src={insightCards[3].image}
                   alt={insightCards[3].title}
                   fill
-                  className="object-cover grayscale transition-transform duration-[1.5s] group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">

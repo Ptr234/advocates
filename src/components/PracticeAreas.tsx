@@ -28,7 +28,7 @@ const PracticeAreas = () => {
                   src={card.image}
                   alt={card.title}
                   fill
-                  className="object-cover grayscale transition-transform duration-[2s] group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                 />
               </div>
               <div className="p-10">

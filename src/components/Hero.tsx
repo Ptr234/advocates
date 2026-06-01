@@ -37,7 +37,7 @@ const Hero = () => {
                       src="https://images.unsplash.com/photo-1541913007797-42f280b0e484?auto=format&fit=crop&q=80"
                       alt="Industrial detail"
                       fill
-                      className="object-cover grayscale transition-transform duration-[2s] group-hover:scale-105 group-hover:grayscale-0"
+                      className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-0 left-0 p-10">
@@ -57,7 +57,7 @@ const Hero = () => {
                       src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
                       alt="Strategy meeting"
                       fill
-                      className="object-cover grayscale transition-transform duration-[2s] group-hover:scale-105 group-hover:grayscale-0"
+                      className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-0 left-0 p-8">
