@@ -78,12 +78,12 @@ const Hero = () => {
             <ImageReveal delay={0.2} direction="bottom">
               <div className="bg-[#6cc5f1] w-full min-h-[850px] flex flex-col group overflow-hidden relative shadow-2xl">
                 <div className="p-12 z-10 relative">
-                  <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-ink/40 mb-6 block font-sans">2026</span>
+                  <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-ink/40 mb-6 block font-sans">REPORT</span>
                   <h2 className="text-5xl md:text-[56px] font-serif font-medium text-ink leading-[1.05] mb-10 tracking-tight">
-                    Sustainable and inclusive growth impact report
+                    Uganda's Economic Outlook 2026: Navigating Global Volatility
                   </h2>
                   <p className="text-ink/60 text-[16px] max-w-[380px] leading-relaxed font-sans mb-12 font-light">
-                    Our latest research on the intersection of legal innovation and societal progress across the East African landscape.
+                    Our latest strategic analysis on macroeconomic trends, policy shifts, and growth opportunities in the Ugandan market.
                   </p>
                 </div>
                 

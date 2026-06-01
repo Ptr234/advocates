@@ -32,7 +32,7 @@ const ImageReveal = ({ children, delay = 0, direction = "left", className = "" }
       <motion.div
         initial={{ opacity: 0, scale: 1.1 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1], delay: delay + 0.1 }}
       >
         {children}
@@ -43,7 +43,7 @@ const ImageReveal = ({ children, delay = 0, direction = "left", className = "" }
         variants={revealVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: delay }}
         className="absolute inset-0 z-20 bg-gold"
         style={{
