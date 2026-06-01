@@ -1,5 +1,6 @@
 import Image from "next/image";
 import RevealWrapper from "./RevealWrapper";
+import ImageReveal from "./ImageReveal";
 
 const Hero = () => {
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
             {/* Nested Grid for bottom-left cards */}
             <div className="grid grid-cols-7 gap-8 mt-auto">
               <div className="col-span-4">
-                <RevealWrapper delay={0.4}>
+                <ImageReveal delay={0.4} direction="right">
                   <div className="relative aspect-[3.5/4.5] overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
                     <Image
                       src="https://images.unsplash.com/photo-1541913007797-42f280b0e484?auto=format&fit=crop&q=80"
@@ -47,11 +48,11 @@ const Hero = () => {
                       </h3>
                     </div>
                   </div>
-                </RevealWrapper>
+                </ImageReveal>
               </div>
 
               <div className="col-span-3 self-end">
-                <RevealWrapper delay={0.6}>
+                <ImageReveal delay={0.6} direction="top">
                   <div className="relative aspect-square overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
                     <Image
                       src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
@@ -67,14 +68,14 @@ const Hero = () => {
                       </h3>
                     </div>
                   </div>
-                </RevealWrapper>
+                </ImageReveal>
               </div>
             </div>
           </div>
 
           {/* Right Column: Large Featured Report */}
           <div className="lg:col-span-5 h-full">
-            <RevealWrapper delay={0.2}>
+            <ImageReveal delay={0.2} direction="bottom">
               <div className="bg-[#6cc5f1] w-full min-h-[850px] flex flex-col group overflow-hidden relative shadow-2xl">
                 <div className="p-12 z-10 relative">
                   <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-ink/40 mb-6 block font-sans">2026</span>
@@ -102,7 +103,7 @@ const Hero = () => {
                    />
                 </div>
               </div>
-            </RevealWrapper>
+            </ImageReveal>
           </div>
 
         </div>

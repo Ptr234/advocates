@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { insightCards } from "@/lib/data/insights";
 import RevealWrapper from "./RevealWrapper";
+import ImageReveal from "./ImageReveal";
 
 const Insights = () => {
   return (
@@ -20,7 +21,7 @@ const Insights = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px] bg-rule border-[0.5px] border-rule overflow-hidden">
           {/* Large card - spans 2 rows */}
           <div className="lg:row-span-2">
-            <RevealWrapper delay={0.2} width="100%">
+            <ImageReveal delay={0.2} direction="bottom" className="h-full">
               <div className="relative overflow-hidden group cursor-pointer aspect-[3/4] md:aspect-auto h-full bg-white min-h-[400px]">
                 <Image
                   src={insightCards[0].image}
@@ -38,13 +39,13 @@ const Insights = () => {
                   </h3>
                 </div>
               </div>
-            </RevealWrapper>
+            </ImageReveal>
           </div>
 
           {/* Top right cards */}
           {insightCards.slice(1, 3).map((card, i) => (
             <div key={i} className="bg-white">
-              <RevealWrapper delay={0.3 + i * 0.1} width="100%">
+              <ImageReveal delay={0.3 + i * 0.1} direction="left">
                 <div className="relative overflow-hidden group cursor-pointer aspect-[16/9]">
                   <Image
                     src={card.image}
@@ -62,13 +63,13 @@ const Insights = () => {
                     </h3>
                   </div>
                 </div>
-              </RevealWrapper>
+              </ImageReveal>
             </div>
           ))}
 
           {/* Bottom middle card */}
           <div className="bg-white">
-            <RevealWrapper delay={0.5} width="100%">
+            <ImageReveal delay={0.5} direction="right">
               <div className="relative overflow-hidden group cursor-pointer aspect-[16/9]">
                 <Image
                   src={insightCards[3].image}
@@ -86,7 +87,7 @@ const Insights = () => {
                   </h3>
                 </div>
               </div>
-            </RevealWrapper>
+            </ImageReveal>
           </div>
 
           {/* Subscribe box */}

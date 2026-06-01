@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { practices } from "@/lib/data/practices";
 import RevealWrapper from "./RevealWrapper";
+import ImageReveal from "./ImageReveal";
 
 const PracticeAreas = () => {
   return (
@@ -21,24 +22,28 @@ const PracticeAreas = () => {
           {practices.map((card, i) => (
             <div
               key={card.title}
-              className="group overflow-hidden cursor-pointer transition-transform duration-500 hover:-translate-y-1 bg-white relative"
+              className="group overflow-hidden cursor-pointer bg-white relative h-full"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover transition-transform duration-[2s] group-hover:scale-105"
-                />
-              </div>
+              <ImageReveal delay={i * 0.1} direction={i % 3 === 0 ? "left" : i % 3 === 1 ? "top" : "right"}>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                  />
+                </div>
+              </ImageReveal>
               <div className="p-10">
-                <h3 className="font-serif text-[20px] font-medium mb-4 flex items-center gap-3 text-ink group-hover:text-gold transition-colors">
-                  {card.title}
-                  <span className="text-gold text-[22px] transition-transform duration-300 group-hover:translate-x-1">›</span>
-                </h3>
-                <p className="text-[15px] leading-relaxed font-serif text-ink-light font-light">
-                  {card.description}
-                </p>
+                <RevealWrapper delay={0.2 + i * 0.1}>
+                  <h3 className="font-serif text-[20px] font-medium mb-4 flex items-center gap-3 text-ink group-hover:text-gold transition-colors">
+                    {card.title}
+                    <span className="text-gold text-[22px] transition-transform duration-300 group-hover:translate-x-1">›</span>
+                  </h3>
+                  <p className="text-[15px] leading-relaxed font-serif text-ink-light font-light">
+                    {card.description}
+                  </p>
+                </RevealWrapper>
               </div>
               {/* Bottom border reveal */}
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gold scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
