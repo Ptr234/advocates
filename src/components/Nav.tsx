@@ -38,7 +38,15 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 md:px-12 h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4 font-serif text-[22px] font-medium text-ink tracking-tight group">
-          <div className="w-10 h-10 bg-gold flex items-center justify-center text-white font-bold transition-transform group-hover:rotate-12">H</div>
+          <div className="relative w-10 h-10 transition-transform group-hover:rotate-12">
+            <Image 
+              src="/images/logo.svg" 
+              alt="H&G Logo" 
+              width={40} 
+              height={40}
+              className="object-contain"
+            />
+          </div>
           <div className="flex flex-col leading-none">
             <span className="group-hover:text-gold transition-colors">H&G Advocates</span>
             <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-ink-muted mt-1 font-bold">Est. 1903</span>
