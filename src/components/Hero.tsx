@@ -25,13 +25,13 @@ const Hero = () => {
           {/* Left Column: Headline & Secondary Cards */}
           <div className="lg:col-span-7 flex flex-col h-full">
             <RevealWrapper>
-              <div className="max-w-[620px] mb-20">
-                <h1 className="text-6xl md:text-[92px] font-serif font-medium mb-12 leading-[1.0] tracking-tight text-white">
+              <div className="max-w-155 mb-20">
+                <h1 className="text-6xl md:text-[92px] font-serif font-medium mb-12 leading-none tracking-tight text-white">
                   What's your next <br /> 
                   <span className="text-gold italic">brilliant move?</span>
                 </h1>
                 <div className="flex items-center gap-12">
-                  <p className="text-[16px] text-white/60 max-w-[340px] font-sans font-light leading-relaxed">
+                  <p className="text-[16px] text-white/60 max-w-85 font-sans font-light leading-relaxed">
                     Game-changing work. People and AI powering growth. At H&G, we help you think bigger, build stronger, and expand opportunity for all.
                   </p>
                   <button className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
@@ -47,14 +47,14 @@ const Hero = () => {
             <div className="grid grid-cols-7 gap-8 mt-auto">
               <div className="col-span-4">
                 <ImageReveal delay={0.4} direction="right">
-                  <div className="relative aspect-[3.5/4.5] overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
+                  <div className="relative aspect-3.5/4.5 overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
                     <Image
                       src={`${baseUrl}/images/advo.jpg`}
                       alt="Industrial detail"
                       fill
                       className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-0 left-0 p-10">
                       <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/50 mb-3 block font-sans">REPORT</span>
                       <h3 className="text-2xl font-serif text-white group-hover:text-gold transition-colors leading-tight">
@@ -74,7 +74,7 @@ const Hero = () => {
                       fill
                       className="object-cover transition-transform duration-[2s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-0 left-0 p-8">
                       <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/50 mb-3 block font-sans">ARTICLE</span>
                       <h3 className="text-xl font-serif text-white group-hover:text-gold transition-colors leading-tight">
@@ -90,7 +90,7 @@ const Hero = () => {
           {/* Right Column: Large Featured Report */}
           <div className="lg:col-span-5 h-full">
             <ImageReveal delay={0.2} direction="bottom">
-              <div className="relative w-full min-h-[850px] flex flex-col group overflow-hidden shadow-2xl border-[0.5px] border-white/10">
+              <div className="relative w-full min-h-212.5 flex flex-col group overflow-hidden shadow-2xl border-[0.5px] border-white/10">
                 {/* Background Image */}
                 <Image 
                   src={`${baseUrl}/images/ai.jpg`}
@@ -101,14 +101,14 @@ const Hero = () => {
                 
                 {/* Overlay for text legibility */}
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
                 <div className="p-12 z-10 relative">
                   <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-white/70 mb-6 block font-sans">REPORT</span>
                   <h2 className="text-5xl md:text-[56px] font-serif font-medium text-white leading-[1.05] mb-10 tracking-tight">
                     Legal Tech & AI: Transforming Corporate Advisory in Uganda
                   </h2>
-                  <p className="text-white/80 text-[16px] max-w-[380px] leading-relaxed font-sans mb-12 font-light">
+                  <p className="text-white/80 text-[16px] max-w-95 leading-relaxed font-sans mb-12 font-light">
                     Our latest strategic analysis on macroeconomic trends, policy shifts, and growth opportunities in the Ugandan market.
                   </p>
                 </div>

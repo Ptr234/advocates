@@ -14,14 +14,14 @@ const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
 const PodcastSection = () => {
   return (
     <section className="bg-gray-dark px-6 md:px-20 py-32 text-white overflow-hidden relative">
-      <div className="max-w-[1200px] mx-auto relative z-10">
+      <div className="max-w-300 mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20">
           <RevealWrapper>
-            <div className="max-w-[680px]">
+            <div className="max-w-170">
               <h2 className="text-4xl md:text-5xl font-serif font-normal mb-8 leading-tight tracking-tight">
                 The H&G Podcast
               </h2>
-              <p className="text-[16px] leading-relaxed opacity-60 max-w-[580px] font-serif font-light">
+              <p className="text-[16px] leading-relaxed opacity-60 max-w-145 font-serif font-light">
                 A shortcut to clarity in a noisy world, The H&G Podcast dives into the ideas, issues,
                 and innovations reshaping business, the economy, and society. Tune in to hear from
                 experts and thought leaders about the latest in legal breakthroughs, leadership, and more.
@@ -58,7 +58,7 @@ const PodcastSection = () => {
               </h3>
               <p className="text-[15px] text-ink-light leading-relaxed font-serif font-light">{podcastEpisode.description}</p>
             </div>
-            <div className="relative aspect-square md:aspect-auto bg-gray-bg flex items-center justify-center min-h-[360px] overflow-hidden group">
+            <div className="relative aspect-square md:aspect-auto bg-gray-bg flex items-center justify-center min-h-90 overflow-hidden group">
               {/* Play button */}
               <button className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-ink text-[24px] shadow-2xl hover:scale-110 transition-transform relative z-10">
                 <span className="text-gold ml-1">▶</span>
