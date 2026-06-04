@@ -8,7 +8,7 @@ import ImageReveal from "./ImageReveal";
 const Insights = () => {
   return (
     <section id="insights" className="bg-white px-6 md:px-20 py-32 border-t-[0.5px] border-rule">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-300 mx-auto">
         <RevealWrapper>
           <div className="mb-20">
             <span className="eyebrow mb-6 block text-gold">Latest Thinking</span>
@@ -18,18 +18,18 @@ const Insights = () => {
           </div>
         </RevealWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px] bg-rule border-[0.5px] border-rule overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-rule border-[0.5px] border-rule overflow-hidden">
           {/* Large card - spans 2 rows */}
           <div className="lg:row-span-2">
-            <ImageReveal delay={0.2} direction="bottom" className="h-full">
-              <div className="relative overflow-hidden group cursor-pointer aspect-[3/4] md:aspect-auto h-full bg-white min-h-[400px]">
+            <ImageReveal delay={0.4} direction="bottom" className="h-full">
+              <div className="relative overflow-hidden group cursor-pointer aspect-3/4 md:aspect-auto h-full bg-white min-h-100">
                 <Image
                   src={insightCards[0].image}
                   alt={insightCards[0].title}
                   fill
                   className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-90" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
                   <p className="text-[10px] font-bold tracking-[0.2em] uppercase mb-4 text-gold font-sans">
                     {insightCards[0].type}
@@ -42,18 +42,18 @@ const Insights = () => {
             </ImageReveal>
           </div>
 
-          {/* Top right cards */}
-          {insightCards.slice(1, 3).map((card, i) => (
+          {/* Staggered cards */}
+          {insightCards.slice(1, 4).map((card, i) => (
             <div key={i} className="bg-white">
-              <ImageReveal delay={0.3 + i * 0.1} direction="left">
-                <div className="relative overflow-hidden group cursor-pointer aspect-[16/9]">
+              <ImageReveal delay={0.6 + i * 0.2} direction="left">
+                <div className="relative overflow-hidden group cursor-pointer aspect-video">
                   <Image
                     src={card.image}
                     alt={card.title}
                     fill
                     className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-90" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                     <p className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-gold font-sans">
                       {card.type}
@@ -67,32 +67,9 @@ const Insights = () => {
             </div>
           ))}
 
-          {/* Bottom middle card */}
-          <div className="bg-white">
-            <ImageReveal delay={0.5} direction="right">
-              <div className="relative overflow-hidden group cursor-pointer aspect-[16/9]">
-                <Image
-                  src={insightCards[3].image}
-                  alt={insightCards[3].title}
-                  fill
-                  className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3 text-gold font-sans">
-                    {insightCards[3].type}
-                  </p>
-                  <h3 className="font-serif text-[18px] font-normal leading-tight group-hover:text-gold transition-colors">
-                    {insightCards[3].title} <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-                  </h3>
-                </div>
-              </div>
-            </ImageReveal>
-          </div>
-
           {/* Subscribe box */}
           <div className="bg-gray-bg h-full">
-            <RevealWrapper delay={0.6} width="100%">
+            <RevealWrapper delay={1.2} width="100%">
               <div className="p-8 flex flex-col justify-center h-full">
                 <p className="text-ink text-[15px] font-serif mb-8 leading-relaxed font-light">
                   Subscribe to the latest H&G Insights on the topics you care about.
