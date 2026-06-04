@@ -12,6 +12,8 @@ const navItems = [
   { label: "Articles & Insights", href: "#insights" },
 ];
 
+const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,7 +43,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center gap-4 font-serif text-[22px] font-medium text-ink tracking-tight group">
           <div className="relative w-10 h-10 transition-transform group-hover:rotate-12">
             <Image 
-              src="/images/logo.svg" 
+              src={`${baseUrl}/images/logo.svg`}
               alt="H&G Logo" 
               width={40} 
               height={40}

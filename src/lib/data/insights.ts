@@ -5,29 +5,31 @@ export interface InsightCard {
   href: string;
 }
 
+const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
+
 export const insightCards: InsightCard[] = [
   {
     type: "REPORT",
-    title: "Uganda's Economic Outlook 2026: Navigating Global Volatility",
-    image: "https://images.unsplash.com/photo-1541913007797-42f280b0e484?auto=format&fit=crop&q=80",
+    title: "Legal Tech & AI: Transforming Corporate Advisory in Uganda",
+    image: `${baseUrl}/images/ai.jpg`,
     href: "#",
   },
   {
     type: "ARTICLE",
     title: "The Future of Dispute Resolution in East African Courts",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80",
+    image: `${baseUrl}/images/law.jpg`,
     href: "#",
   },
   {
     type: "INTERACTIVE",
-    title: "Legal Tech & AI: Transforming Corporate Advisory in Uganda",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80",
+    title: "The Evolution of Corporate Governance in the Digital Age",
+    image: `${baseUrl}/images/uyt.jpg`,
     href: "#",
   },
   {
     type: "BLOG POST",
     title: "H&G Foundation: Empowering the Next Generation of Legal Minds",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80",
+    image: `${baseUrl}/images/advo.jpg`,
     href: "#",
   },
 ];

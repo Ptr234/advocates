@@ -35,7 +35,7 @@ const Hero = () => {
                 <ImageReveal delay={0.4} direction="right">
                   <div className="relative aspect-[3.5/4.5] overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
                     <Image
-                      src="https://images.unsplash.com/photo-1541913007797-42f280b0e484?auto=format&fit=crop&q=80"
+                      src="/images/advo.jpg"
                       alt="Industrial detail"
                       fill
                       className="object-cover transition-transform duration-[2s] group-hover:scale-105"
@@ -76,31 +76,33 @@ const Hero = () => {
           {/* Right Column: Large Featured Report */}
           <div className="lg:col-span-5 h-full">
             <ImageReveal delay={0.2} direction="bottom">
-              <div className="bg-[#6cc5f1] w-full min-h-[850px] flex flex-col group overflow-hidden relative shadow-2xl">
+              <div className="relative w-full min-h-[850px] flex flex-col group overflow-hidden shadow-2xl">
+                {/* Background Image */}
+                <Image 
+                  src="/images/ai.jpg" 
+                  alt="Legal professional working with AI-enhanced tools"
+                  fill
+                  className="object-cover transition-transform duration-[4s] ease-out group-hover:scale-105"
+                />
+                
+                {/* Overlay for text legibility */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
                 <div className="p-12 z-10 relative">
-                  <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-ink/40 mb-6 block font-sans">REPORT</span>
-                  <h2 className="text-5xl md:text-[56px] font-serif font-medium text-ink leading-[1.05] mb-10 tracking-tight">
-                    Uganda's Economic Outlook 2026: Navigating Global Volatility
+                  <span className="text-[12px] uppercase tracking-[0.3em] font-bold text-white/70 mb-6 block font-sans">REPORT</span>
+                  <h2 className="text-5xl md:text-[56px] font-serif font-medium text-white leading-[1.05] mb-10 tracking-tight">
+                    Legal Tech & AI: Transforming Corporate Advisory in Uganda
                   </h2>
-                  <p className="text-ink/60 text-[16px] max-w-[380px] leading-relaxed font-sans mb-12 font-light">
+                  <p className="text-white/80 text-[16px] max-w-[380px] leading-relaxed font-sans mb-12 font-light">
                     Our latest strategic analysis on macroeconomic trends, policy shifts, and growth opportunities in the Ugandan market.
                   </p>
                 </div>
                 
-                <div className="mt-auto relative z-20 p-12">
+                <div className="mt-auto relative z-10 p-12">
                   <button className="bg-white text-ink px-10 py-5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-ink hover:text-white transition-all duration-300 rounded-none font-sans shadow-lg flex items-center gap-3">
                     Read the report <span>→</span>
                   </button>
-                </div>
-                
-                {/* Large visual illustration - bottom aligned per screenshot */}
-                <div className="absolute bottom-10 right-[-10%] w-[120%] aspect-square z-10 pointer-events-none group-hover:scale-110 transition-transform duration-[4s] ease-out">
-                   <Image 
-                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80" 
-                    alt="Abstract 3D impact visualization"
-                    fill
-                    className="object-contain mix-blend-multiply opacity-90" 
-                   />
                 </div>
               </div>
             </ImageReveal>
