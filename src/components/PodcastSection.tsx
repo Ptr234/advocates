@@ -9,6 +9,8 @@ const podcastEpisode = {
     "AI is poised to reshape banking not just by cutting costs, but by redistributing profits, redefining customer relationships, and accelerating competition. How should banks respond?",
 };
 
+const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
+
 const PodcastSection = () => {
   return (
     <section className="bg-gray-dark px-6 md:px-20 py-32 text-white overflow-hidden relative">
@@ -21,7 +23,7 @@ const PodcastSection = () => {
               </h2>
               <p className="text-[16px] leading-relaxed opacity-60 max-w-[580px] font-serif font-light">
                 A shortcut to clarity in a noisy world, The H&G Podcast dives into the ideas, issues,
-                and innovations reshaping business, the economy, and society. Tune in to hear from 
+                and innovations reshaping business, the economy, and society. Tune in to hear from
                 experts and thought leaders about the latest in legal breakthroughs, leadership, and more.
               </p>
               <div className="flex gap-4 mt-10">
@@ -61,12 +63,12 @@ const PodcastSection = () => {
               <button className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-ink text-[24px] shadow-2xl hover:scale-110 transition-transform relative z-10">
                 <span className="text-gold ml-1">▶</span>
               </button>
-              
+
               {/* Abstract decorative graphic */}
-              <div className="absolute inset-0 opacity-[0.05] pointer-events-none group-hover:scale-105 transition-transform duration-[4s]">
+              <div className="absolute inset-0 opacity-40 pointer-events-none group-hover:scale-105 transition-transform duration-[4s]">
                  <Image 
-                  src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80" 
-                  alt="Podcast abstract visualization"
+                  src={`${baseUrl}/images/placeholder.jpg`}
+                  alt="Podcast featured episode visualization"
                   fill
                   className="object-cover" 
                  />
@@ -85,3 +87,4 @@ const PodcastSection = () => {
 };
 
 export default PodcastSection;
+

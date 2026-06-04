@@ -16,6 +16,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +26,21 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-white/95 backdrop-blur-md border-b-[0.5px] border-rule" : "bg-transparent"
+      isScrolled || isMobileMenuOpen ? "bg-white/95 backdrop-blur-md border-b-[0.5px] border-rule" : "bg-transparent"
     }`}>
-      {/* Utility Top Bar */}
-      <div className="flex justify-end px-6 md:px-12 py-2 border-b-[0.5px] border-black/5">
+      {/* Utility Top Bar - hidden on mobile when menu is open to save space */}
+      <div className={`flex justify-end px-6 md:px-12 py-2 border-b-[0.5px] border-black/5 transition-opacity ${isMobileMenuOpen ? "opacity-0 h-0 py-0 overflow-hidden" : "opacity-100"}`}>
         <div className="flex gap-6 text-[10px] font-sans font-bold text-ink-muted tracking-[0.2em] uppercase">
           <Link href="#" className="hover:text-gold transition-colors">Client Portal</Link>
           <span className="opacity-20">|</span>
@@ -40,7 +50,7 @@ const Navbar = () => {
 
       <div className="flex items-center justify-between px-6 md:px-12 h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-4 font-serif text-[22px] font-medium text-ink tracking-tight group">
+        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 font-serif text-[22px] font-medium text-ink tracking-tight group">
           <div className="relative w-10 h-10 transition-transform group-hover:rotate-12">
             <Image 
               src={`${baseUrl}/images/logo.svg`}
@@ -56,7 +66,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Nav Links */}
+        {/* Desktop Nav Links */}
         <div className="hidden lg:flex gap-12 items-center">
           {navItems.map((item) => (
             <Link
@@ -70,20 +80,68 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Search & Actions */}
-        <div className="flex gap-8 items-center">
-          <button className="text-ink-muted hover:text-gold transition-colors p-2">
+        {/* Actions & Mobile Toggle */}
+        <div className="flex gap-4 md:gap-8 items-center">
+          <button className="text-ink-muted hover:text-gold transition-colors p-2 hidden md:block">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.35-4.35" />
             </svg>
           </button>
           
-          <button className="lg:hidden text-ink">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <button 
+            className="lg:hidden text-ink p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
           </button>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <div className={`lg:hidden fixed inset-0 top-20 bg-white z-40 transition-transform duration-500 ease-in-out ${
+        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+      }`}>
+        <div className="flex flex-col p-8 h-full">
+          <div className="flex flex-col gap-8 mt-8">
+            {navItems.map((item, i) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-3xl font-serif font-medium text-ink hover:text-gold transition-colors duration-300 transform transition-transform delay-[${i * 100}ms] ${
+                  isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-auto pb-12">
+            <div className="h-[0.5px] bg-rule w-full mb-8" />
+            <div className="flex flex-col gap-6">
+              <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink">Contact Us</Link>
+              <Link href="#" className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink">Client Portal</Link>
+              <div className="flex gap-4 mt-4">
+                {/* Social icons placeholders */}
+                {[1, 2, 3].map((_, i) => (
+                  <div key={i} className="w-10 h-10 rounded-none border-[0.5px] border-rule flex items-center justify-center">
+                    <div className="w-4 h-4 bg-ink-muted opacity-20" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

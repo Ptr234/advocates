@@ -2,10 +2,24 @@ import Image from "next/image";
 import RevealWrapper from "./RevealWrapper";
 import ImageReveal from "./ImageReveal";
 
+const baseUrl = process.env.NODE_ENV === 'production' ? '/advocates' : '';
+
 const Hero = () => {
   return (
-    <section className="bg-ink min-h-screen pt-40 pb-24 overflow-hidden relative">
-      <div className="content-max px-6 md:px-12 relative z-10">
+    <section className="min-h-screen pt-40 pb-24 overflow-hidden relative flex items-center">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src={`${baseUrl}/images/uyt.jpg`}
+          alt="H&G Advocates Landing Background"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-ink/80 backdrop-blur-[2px]" />
+      </div>
+
+      <div className="content-max px-6 md:px-12 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Column: Headline & Secondary Cards */}
@@ -35,7 +49,7 @@ const Hero = () => {
                 <ImageReveal delay={0.4} direction="right">
                   <div className="relative aspect-[3.5/4.5] overflow-hidden group cursor-pointer border-[0.5px] border-white/10">
                     <Image
-                      src="/images/advo.jpg"
+                      src={`${baseUrl}/images/advo.jpg`}
                       alt="Industrial detail"
                       fill
                       className="object-cover transition-transform duration-[2s] group-hover:scale-105"
@@ -76,10 +90,10 @@ const Hero = () => {
           {/* Right Column: Large Featured Report */}
           <div className="lg:col-span-5 h-full">
             <ImageReveal delay={0.2} direction="bottom">
-              <div className="relative w-full min-h-[850px] flex flex-col group overflow-hidden shadow-2xl">
+              <div className="relative w-full min-h-[850px] flex flex-col group overflow-hidden shadow-2xl border-[0.5px] border-white/10">
                 {/* Background Image */}
                 <Image 
-                  src="/images/ai.jpg" 
+                  src={`${baseUrl}/images/ai.jpg`}
                   alt="Legal professional working with AI-enhanced tools"
                   fill
                   className="object-cover transition-transform duration-[4s] ease-out group-hover:scale-105"
